@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix login flow bug
+
 ## [25.8.1] - 2025-08-06
 
 ### Added

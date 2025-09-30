@@ -167,6 +167,8 @@ class AppSecPluginSettingsConfigurable : BoundConfigurable("Whitespots AppSec") 
     }
 
     private fun performLogin() {
+        panel?.apply()
+
         val currentApiUrl = settings.apiUrl.trim()
         if (currentApiUrl.isEmpty()) {
             Messages.showErrorDialog(
