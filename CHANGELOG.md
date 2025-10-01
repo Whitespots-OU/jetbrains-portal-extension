@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [25.10.1] - 2025-10-01
+
 ### Added
 
 - GitHub Actions: add `jlumbroso/free-disk-space` action to build related steps to maximize build environment storage
@@ -32,7 +34,8 @@
 
 - Update README.md, provide user manual and description
 
-[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.8.1...HEAD
+[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.1...HEAD
+[25.10.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.8.1...v25.10.1
 [25.8.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v0.0.13...v25.8.1
 [0.0.14]: https://github.com/Whitespots-OU/jetbrains-portal-extension/commits/v0.0.14
 [0.0.13]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v0.0.14...v0.0.13
