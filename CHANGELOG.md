@@ -4,9 +4,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- GitHub Actions: add `jlumbroso/free-disk-space` action to build related steps to maximize build environment storage
+
 ### Fixed
 
 - Fix login flow bug
+- Bypass check in the login flow to allow a wide range of connections
+- Increased minimal supported intellij version to avoid build errors
 
 ## [25.8.1] - 2025-08-06
 
