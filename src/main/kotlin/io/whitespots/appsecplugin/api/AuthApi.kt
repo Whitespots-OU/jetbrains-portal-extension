@@ -12,6 +12,8 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import java.security.cert.X509Certificate
+import javax.net.ssl.X509TrustManager
 
 @Serializable
 data class AuthTokenResponse(
@@ -23,6 +25,16 @@ object AuthApi {
 
     suspend fun login(baseUrl: String, username: String, password: String): String {
         val client = HttpClient(CIO) {
+            engine {
+                https {
+                    trustManager = object : X509TrustManager {
+                        override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                        override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                        override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                    }
+                }
+            }
+
             install(ContentNegotiation) {
                 json(Json {
                     ignoreUnknownKeys = true

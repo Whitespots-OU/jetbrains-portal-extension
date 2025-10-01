@@ -13,6 +13,8 @@ import io.whitespots.appsecplugin.exceptions.ApiClientConfigurationException
 import io.whitespots.appsecplugin.services.AppSecPluginSettings
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import java.security.cert.X509Certificate
+import javax.net.ssl.X509TrustManager
 
 object ApiClient {
     private val LOG = logger<ApiClient>()
@@ -21,6 +23,16 @@ object ApiClient {
     @OptIn(ExperimentalSerializationApi::class)
     val client: HttpClient by lazy {
         HttpClient(CIO) {
+            engine {
+                https {
+                    trustManager = object : X509TrustManager {
+                        override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                        override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                        override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                    }
+                }
+            }
+
             install(ContentNegotiation) {
                 json(Json {
                     ignoreUnknownKeys = true
