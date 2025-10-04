@@ -18,6 +18,8 @@ import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.dsl.builder.Align
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.jcef.JBCefBrowser
+import com.intellij.ui.jcef.JBCefBrowserBase
+import com.intellij.ui.jcef.JBCefJSQuery
 import com.intellij.ui.treeStructure.Tree
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.tree.TreeUtil
@@ -273,10 +275,12 @@ class AppSecToolWindow(private val project: Project, parentDisposable: Disposabl
 
 
     private fun setupTreeListeners() {
+        val jsQuery = JBCefJSQuery.create(descriptionBrowser as JBCefBrowserBase)
+        
         tree.addTreeSelectionListener {
             val selectedNode = tree.lastSelectedPathComponent as? FindingTreeNode
             if (selectedNode != null) {
-                displayFindingDescription(selectedNode.finding)
+                displayFindingDescription(selectedNode.finding, jsQuery)
             }
         }
 
@@ -307,8 +311,8 @@ class AppSecToolWindow(private val project: Project, parentDisposable: Disposabl
         }
     }
 
-    private fun displayFindingDescription(finding: Finding) {
-        ThemeUtils.prepareMarkdownPage(descriptionBrowser, finding, project)
+    private fun displayFindingDescription(finding: Finding, jsQuery: JBCefJSQuery) {
+        ThemeUtils.prepareMarkdownPage(descriptionBrowser, finding, project, jsQuery)
     }
 
     private fun clearDescription() {

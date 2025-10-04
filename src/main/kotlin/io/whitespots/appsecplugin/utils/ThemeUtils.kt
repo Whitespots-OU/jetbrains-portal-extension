@@ -7,7 +7,6 @@ import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.ui.jcef.JBCefBrowser
-import com.intellij.ui.jcef.JBCefBrowserBase
 import com.intellij.ui.jcef.JBCefJSQuery
 import io.whitespots.appsecplugin.models.Finding
 import io.whitespots.appsecplugin.models.TriageStatus
@@ -447,11 +446,11 @@ object ThemeUtils {
     fun prepareMarkdownPage(
         browser: JBCefBrowser,
         finding: Finding,
-        project: Project
+        project: Project,
+        jsQuery: JBCefJSQuery
     ) {
         configureBrowserForExternalLinks(browser)
 
-        val jsQuery = JBCefJSQuery.create(browser as JBCefBrowserBase)
         jsQuery.addHandler { query ->
             when {
                 query.startsWith("reject-finding:") -> {

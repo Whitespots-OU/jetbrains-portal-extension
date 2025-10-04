@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix token obtaining flow
+- Add a self-host certificate bypass option
+
 ## [25.10.1] - 2025-10-01
 
 ### Added

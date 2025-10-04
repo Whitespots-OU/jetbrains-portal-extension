@@ -4,6 +4,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.ui.awt.RelativePoint
 import com.intellij.ui.jcef.JBCefBrowser
+import com.intellij.ui.jcef.JBCefBrowserBase
+import com.intellij.ui.jcef.JBCefJSQuery
 import io.whitespots.appsecplugin.models.Finding
 import java.awt.Dimension
 import java.awt.event.InputEvent
@@ -34,9 +36,10 @@ object FindingPopupManager {
 
     private fun createPopupContent(project: Project, finding: Finding): JComponent {
         val browser = JBCefBrowser()
+        val jsQuery = JBCefJSQuery.create(browser as JBCefBrowserBase)
 
         ThemeUtils.configureBrowserForExternalLinks(browser)
-        ThemeUtils.prepareMarkdownPage(browser, finding, project)
+        ThemeUtils.prepareMarkdownPage(browser, finding, project, jsQuery)
 
         return browser.component.apply {
             preferredSize = Dimension(600, 400)

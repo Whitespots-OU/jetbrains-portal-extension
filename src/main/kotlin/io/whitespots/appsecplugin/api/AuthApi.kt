@@ -1,5 +1,6 @@
 package io.whitespots.appsecplugin.api
 
+import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.logger
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -10,6 +11,7 @@ import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.whitespots.appsecplugin.services.AppSecPluginSettings
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.security.cert.X509Certificate
@@ -26,11 +28,14 @@ object AuthApi {
     suspend fun login(baseUrl: String, username: String, password: String): String {
         val client = HttpClient(CIO) {
             engine {
-                https {
-                    trustManager = object : X509TrustManager {
-                        override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-                        override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-                        override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                val disableSsl = service<AppSecPluginSettings>().state.disableSslVerification
+                if (disableSsl) {
+                    https {
+                        trustManager = object : X509TrustManager {
+                            override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                            override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                            override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                        }
                     }
                 }
             }

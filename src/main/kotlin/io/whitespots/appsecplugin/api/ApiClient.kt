@@ -24,11 +24,14 @@ object ApiClient {
     val client: HttpClient by lazy {
         HttpClient(CIO) {
             engine {
-                https {
-                    trustManager = object : X509TrustManager {
-                        override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-                        override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-                        override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                val disableSsl = service<AppSecPluginSettings>().state.disableSslVerification
+                if (disableSsl) {
+                    https {
+                        trustManager = object : X509TrustManager {
+                            override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                            override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                            override fun getAcceptedIssuers(): Array<X509Certificate>? = null
+                        }
                     }
                 }
             }

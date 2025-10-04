@@ -65,14 +65,22 @@ class AppSecPluginSettingsConfigurable : BoundConfigurable("Whitespots AppSec") 
                         }
                 }
                 row {
-                    loginButton = button("Login") {
+                    loginButton = button("Obtain an Authentication Token") {
                         performLogin()
                     }.apply {
                         val isEnabled = settings.apiUrl.isNotEmpty() &&
                                 (settings.apiUrl.startsWith("http://") || settings.apiUrl.startsWith("https://"))
                         enabled(isEnabled)
-                        comment("Login with username/password to obtain token automatically")
+                        comment("Login with portal username/password to obtain token")
                     }.component
+                }
+            }
+
+            group("Network") {
+                row {
+                    checkBox("Disable SSL verification")
+                        .bindSelected(settings::disableSslVerification)
+                        .comment("Warning: Disables TLS certificate checks. Enable only for trusted, self-signed instances.")
                 }
             }
 
