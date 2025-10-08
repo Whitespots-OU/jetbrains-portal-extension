@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [25.10.2] - 2025-10-04
+
 ### Fixed
 
 - Fix token obtaining flow
@@ -39,7 +41,8 @@
 
 - Update README.md, provide user manual and description
 
-[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.1...HEAD
+[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.2...HEAD
+[25.10.2]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.1...v25.10.2
 [25.10.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.8.1...v25.10.1
 [25.8.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v0.0.13...v25.8.1
 [0.0.14]: https://github.com/Whitespots-OU/jetbrains-portal-extension/commits/v0.0.14
