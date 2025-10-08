@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+Fix build verification errors
+
 ## [25.10.2] - 2025-10-04
 
 ### Fixed
