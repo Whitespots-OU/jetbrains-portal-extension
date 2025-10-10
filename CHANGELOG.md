@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [25.10.3] - 2025-10-10
+
 ### Fixed
 
 - Fix build verification errors
@@ -45,7 +47,8 @@
 
 - Update README.md, provide user manual and description
 
-[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.2...HEAD
+[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.3...HEAD
+[25.10.3]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.2...v25.10.3
 [25.10.2]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.1...v25.10.2
 [25.10.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.8.1...v25.10.1
 [25.8.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v0.0.13...v25.8.1
