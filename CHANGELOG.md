@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix verification compatibility issues
+
 ## [25.10.3] - 2025-10-10
 
 ### Fixed

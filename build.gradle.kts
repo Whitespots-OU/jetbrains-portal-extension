@@ -133,7 +133,8 @@ intellijPlatform {
 
     pluginVerification {
         ides {
-            create("IU", "2025.2")
+            ide("IU", "2024.2.6")
+            ide("IU", "2025.3")
         }
     }
 }
