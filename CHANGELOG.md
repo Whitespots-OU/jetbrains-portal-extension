@@ -6,7 +6,7 @@
 
 ### Fixed
 
-- Fix verification compatibility issues
+- Fix CI/CD plugin publish flow
 
 ## [25.10.3] - 2025-10-10
 
