@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
-    kotlin("plugin.serialization") version "2.2.20"
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 group = providers.gradleProperty("pluginGroup").get()
@@ -133,7 +133,7 @@ intellijPlatform {
 
     pluginVerification {
         ides {
-            recommended()
+            create("IU", "2024.2.6")
         }
     }
 }
