@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [25.11.1] - 2025-11-12
+
 ### Fixed
 
 - Fix CI/CD plugin publish flow
@@ -51,7 +53,8 @@
 
 - Update README.md, provide user manual and description
 
-[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.3...HEAD
+[Unreleased]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.11.1...HEAD
+[25.11.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.3...v25.11.1
 [25.10.3]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.2...v25.10.3
 [25.10.2]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.10.1...v25.10.2
 [25.10.1]: https://github.com/Whitespots-OU/jetbrains-portal-extension/compare/v25.8.1...v25.10.1
